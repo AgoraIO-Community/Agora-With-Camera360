@@ -10,7 +10,7 @@ import io.agora.rtc.RtcEngine;
 
 public class AgoraApplication extends Application {
     private RtcEngine mRtcEngine;
-    private AgoraRtcEventHandler mAgoraRtcEventHandler;
+    private AgoraRtcEventHandlerImpl mAgoraRtcEventHandlerImpl;
 
     private CameraVideoManager mCameraVideoManager;
 
@@ -22,10 +22,12 @@ public class AgoraApplication extends Application {
     }
 
     private void createRtcEngine() {
-        mAgoraRtcEventHandler = new AgoraRtcEventHandler();
+        mAgoraRtcEventHandlerImpl = new AgoraRtcEventHandlerImpl();
         try {
-            mRtcEngine = RtcEngine.create(this, getString(R.string.APP_ID), mAgoraRtcEventHandler);
+            mRtcEngine = RtcEngine.create(this, getString(R.string.APP_ID), mAgoraRtcEventHandlerImpl);
             mRtcEngine.setChannelProfile(Constants.CHANNEL_PROFILE_LIVE_BROADCASTING);
+            mRtcEngine.enableVideo();
+            mRtcEngine.setParameters("{\"rtc.log_filter\":65535}");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -42,8 +44,16 @@ public class AgoraApplication extends Application {
         return mRtcEngine;
     }
 
-    public AgoraRtcEventHandler eventHandler() {
-        return mAgoraRtcEventHandler;
+    public AgoraRtcEventHandlerImpl eventHandler() {
+        return mAgoraRtcEventHandlerImpl;
+    }
+
+    public void registerHandler(EventHandler handler) {
+        mAgoraRtcEventHandlerImpl.registerHandler(handler);
+    }
+
+    public void removeHandler(EventHandler handler) {
+        mAgoraRtcEventHandlerImpl.removeHandler(handler);
     }
 
     public CameraVideoManager cameraVideoManager() {

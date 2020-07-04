@@ -27,8 +27,8 @@ public class RtcVideoConsumer implements IVideoConsumer, IVideoSource {
     private volatile VideoModule mVideoModule;
     private int mChannelId;
 
-    public RtcVideoConsumer(VideoModule videoModule) {
-        this(videoModule, ChannelManager.ChannelID.CAMERA);
+    public RtcVideoConsumer() {
+        this(VideoModule.instance(), ChannelManager.ChannelID.CAMERA);
     }
 
     private RtcVideoConsumer(VideoModule videoModule, int channelId) {
