@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="edit_margin_top">240dp</dimen>
+    <dimen name="edit_margin_width">280dp</dimen>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RtcCamera360</string>
+
+    <string name="APP_ID">ce8673eb931840dbbe7fd3848ebc037f</string>
+
+    <string name="join_channel_btn_text">Join Channel</string>
+
+    <string name="legal_characters_for_agora" translatable="false" >abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&amp;()+,-:;&lt;=.>?@[]^_`{|}~</string>
+</resources>
