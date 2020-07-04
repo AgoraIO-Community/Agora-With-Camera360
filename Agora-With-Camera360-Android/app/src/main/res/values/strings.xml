@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">RtcCamera360</string>
+    <string name="app_name" translatable="false">RtcCamera360</string>
 
-    <string name="APP_ID">ce8673eb931840dbbe7fd3848ebc037f</string>
+    <string name="APP_ID" translatable="false">ce8673eb931840dbbe7fd3848ebc037f</string>
 
     <string name="join_channel_btn_text">Join Channel</string>
 

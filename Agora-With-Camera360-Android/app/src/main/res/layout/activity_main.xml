@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/channel_name_edit"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/vertical_margin"
         android:textAllCaps="false"
         android:text="@string/join_channel_btn_text"
         android:onClick="onJoinChannel"/>

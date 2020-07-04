@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextureView
+        android:id="@+id/video_preview_surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/switch_camera_button"
+        android:layout_width="@dimen/switch_camera_button_size"
+        android:layout_height="@dimen/switch_camera_button_size"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/vertical_margin"
+        android:layout_marginEnd="@dimen/horizontal_margin"
+        android:src="@drawable/switch_camera_white"
+        android:background="@drawable/round_gray_background"
+        android:onClick="onCameraSwitched"/>
+</RelativeLayout>

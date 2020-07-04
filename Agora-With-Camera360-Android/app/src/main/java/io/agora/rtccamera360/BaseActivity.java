@@ -2,6 +2,7 @@ package io.agora.rtccamera360;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import io.agora.capture.video.camera.CameraVideoManager;
 import io.agora.rtc.RtcEngine;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -16,5 +17,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected AgoraRtcEventHandler eventHandler() {
         return application().eventHandler();
+    }
+
+    protected CameraVideoManager cameraVideoManager() {
+        return application().cameraVideoManager();
     }
 }

@@ -7,7 +7,7 @@ import io.agora.capture.video.camera.VideoCaptureFrame;
 public class Camera360Preprocessor implements IPreprocessor {
     @Override
     public VideoCaptureFrame onPreProcessFrame(VideoCaptureFrame videoCaptureFrame, VideoChannel.ChannelContext channelContext) {
-        return null;
+        return videoCaptureFrame;
     }
 
     @Override
