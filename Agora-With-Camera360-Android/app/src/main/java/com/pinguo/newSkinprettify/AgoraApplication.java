@@ -1,10 +1,10 @@
-package io.agora.rtccamera360;
+package com.pinguo.newSkinprettify;
 
 import android.app.Application;
 
 import io.agora.capture.video.camera.CameraVideoManager;
 import io.agora.capture.video.camera.VideoModule;
-import io.agora.framework.Camera360Preprocessor;
+import com.pinguo.newSkinprettify.framework.Camera360Preprocessor;
 import io.agora.rtc.Constants;
 import io.agora.rtc.RtcEngine;
 
@@ -27,7 +27,6 @@ public class AgoraApplication extends Application {
             mRtcEngine = RtcEngine.create(this, getString(R.string.APP_ID), mAgoraRtcEventHandlerImpl);
             mRtcEngine.setChannelProfile(Constants.CHANNEL_PROFILE_LIVE_BROADCASTING);
             mRtcEngine.enableVideo();
-            mRtcEngine.setParameters("{\"rtc.log_filter\":65535}");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -35,7 +34,7 @@ public class AgoraApplication extends Application {
 
     private void initCameraManagerAsync() {
         new Thread(() -> {
-            Camera360Preprocessor preprocessor = new Camera360Preprocessor();
+            Camera360Preprocessor preprocessor = new Camera360Preprocessor(this);
             mCameraVideoManager = new CameraVideoManager(this, preprocessor);
         }).start();
     }

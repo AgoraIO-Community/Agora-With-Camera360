@@ -1,4 +1,4 @@
-package io.agora.framework;
+package com.pinguo.newSkinprettify.framework;
 
 import android.opengl.GLES20;
 import android.util.Log;

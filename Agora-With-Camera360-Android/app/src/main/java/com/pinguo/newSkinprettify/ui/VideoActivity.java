@@ -1,4 +1,4 @@
-package io.agora.rtccamera360;
+package com.pinguo.newSkinprettify.ui;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -9,8 +9,11 @@ import android.widget.RelativeLayout;
 
 import io.agora.capture.video.camera.CameraVideoManager;
 import io.agora.capture.video.camera.Constant;
-import io.agora.framework.Camera360Preprocessor;
-import io.agora.framework.RtcVideoConsumer;
+
+import com.pinguo.newSkinprettify.Const;
+import com.pinguo.newSkinprettify.R;
+import com.pinguo.newSkinprettify.framework.Camera360Preprocessor;
+import com.pinguo.newSkinprettify.framework.RtcVideoConsumer;
 import io.agora.rtc.Constants;
 
 public class VideoActivity extends BaseActivity {

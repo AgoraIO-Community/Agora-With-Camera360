@@ -1,4 +1,4 @@
-package io.agora.rtccamera360;
+package com.pinguo.newSkinprettify;
 
 public interface EventHandler {
 

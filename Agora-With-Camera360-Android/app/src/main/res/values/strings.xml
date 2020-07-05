@@ -5,5 +5,7 @@
 
     <string name="join_channel_btn_text">Join Channel</string>
 
-    <string name="legal_characters_for_agora" translatable="false" >abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&amp;()+,-:;&lt;=.>?@[]^_`{|}~</string>
+    <string name="legal_characters_for_agora" translatable="false">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&amp;()+,-:;&lt;=.>?@[]^_`{|}~</string>
+
+    <string name="camera_360_licence" translatable="false"></string>
 </resources>

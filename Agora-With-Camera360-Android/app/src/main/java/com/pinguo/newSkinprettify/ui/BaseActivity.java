@@ -1,9 +1,12 @@
-package io.agora.rtccamera360;
+package com.pinguo.newSkinprettify.ui;
 
 import android.view.SurfaceView;
-import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.pinguo.newSkinprettify.AgoraApplication;
+import com.pinguo.newSkinprettify.AgoraRtcEventHandlerImpl;
+import com.pinguo.newSkinprettify.EventHandler;
 
 import io.agora.capture.video.camera.CameraVideoManager;
 import io.agora.rtc.Constants;

@@ -1,4 +1,4 @@
-package io.agora.rtccamera360;
+package com.pinguo.newSkinprettify.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +13,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Toast;
+
+import com.pinguo.newSkinprettify.Const;
+import com.pinguo.newSkinprettify.R;
 
 public class MainActivity extends AppCompatActivity {
     private static final int PERMISSION_REQ = 1;

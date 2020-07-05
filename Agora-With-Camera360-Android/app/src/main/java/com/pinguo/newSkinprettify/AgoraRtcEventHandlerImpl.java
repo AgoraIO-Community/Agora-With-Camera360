@@ -1,4 +1,4 @@
-package io.agora.rtccamera360;
+package com.pinguo.newSkinprettify;
 
 import java.util.ArrayList;
 import java.util.List;
