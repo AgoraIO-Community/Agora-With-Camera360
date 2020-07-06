@@ -24,6 +24,7 @@ public class VideoActivity extends BaseActivity {
 
     private TextureView mLocalPreview;
     private RelativeLayout mRemoteVideoLayout;
+    private boolean mMuted = false;
 
     private int mRemoteUid = -1;
     private String mChannelName;
@@ -73,6 +74,11 @@ public class VideoActivity extends BaseActivity {
         if (cameraAvailable()) {
             mCameraManager.switchCamera();
         }
+    }
+
+    public void onMuteClicked(View view) {
+        mMuted = !mMuted;
+        rtcEngine().muteLocalAudioStream(mMuted);
     }
 
     @Override
