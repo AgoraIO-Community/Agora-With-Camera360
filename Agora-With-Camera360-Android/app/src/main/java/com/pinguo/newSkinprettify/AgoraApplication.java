@@ -24,7 +24,7 @@ public class AgoraApplication extends Application {
     private void createRtcEngine() {
         mAgoraRtcEventHandlerImpl = new AgoraRtcEventHandlerImpl();
         try {
-            mRtcEngine = RtcEngine.create(this, getString(R.string.APP_ID), mAgoraRtcEventHandlerImpl);
+            mRtcEngine = RtcEngine.create(this, getString(R.string.agora_app_id), mAgoraRtcEventHandlerImpl);
             mRtcEngine.setChannelProfile(Constants.CHANNEL_PROFILE_LIVE_BROADCASTING);
             mRtcEngine.enableVideo();
         } catch (Exception e) {
