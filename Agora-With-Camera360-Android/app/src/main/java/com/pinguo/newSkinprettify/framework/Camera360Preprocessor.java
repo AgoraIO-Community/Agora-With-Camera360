@@ -5,6 +5,7 @@ import android.opengl.GLES20;
 import android.util.Log;
 
 import com.pinguo.newSkinprettify.R;
+import com.pinguo.newSkinprettify.utils.AppConst;
 import com.pinguo.newSkinprettify.utils.FileUtils;
 
 import io.agora.capture.framework.modules.channels.VideoChannel;
@@ -25,6 +26,9 @@ public class Camera360Preprocessor implements IPreprocessor {
     private float mSkinWhiten = 0.6f;
     private float mSkinRedden = 0.4f;
     private int mSkinSoftStrength = 100;
+
+    private String mFilterType = AppConst.FILTER_TYPES[0];
+    private int mFilterStrength = 100;
 
     public Camera360Preprocessor(Context context) {
         mContext = context;
@@ -48,7 +52,8 @@ public class Camera360Preprocessor implements IPreprocessor {
 
         mCameraPrettyBase.SetSizeForAdjustInput(width, height);
 
-        mCameraPrettyBase.SetInputFrameByTexture(frame.textureId, width, height, 1);
+        mCameraPrettyBase.SetInputFrameByTexture(frame.textureId, width,
+                height, toTextureType(frame.format.getTexFormat()));
 
         // The frames are already rotated to the desired direction
         mCameraPrettyBase.SetOrientForAdjustInput(PGSkinPrettifyEngine.PG_Orientation.PG_OrientationNormal);
@@ -56,8 +61,15 @@ public class Camera360Preprocessor implements IPreprocessor {
         mCameraPrettyBase.SetSkinSoftenStrength(mSkinSoftStrength);
         mCameraPrettyBase.SetSkinColor(mSkinPink, mSkinWhiten, mSkinRedden);
 
+        mCameraPrettyBase.SetColorFilterByName(mFilterType);
+        mCameraPrettyBase.SetColorFilterStrength(mFilterStrength);
+
         // mCameraPrettyBase.SetOutputFormat(PGSkinPrettifyEngine.PG_PixelFormat.PG_Pixel_I420);
         mCameraPrettyBase.SetOutputOrientation(PGSkinPrettifyEngine.PG_Orientation.PG_OrientationNormal);
+    }
+
+    private int toTextureType(int texture) {
+        return texture == GLES20.GL_TEXTURE_2D ? 1 : 0;
     }
 
     private int runPrettify() {
@@ -117,5 +129,15 @@ public class Camera360Preprocessor implements IPreprocessor {
 
     public void setSkinRedden(int redden) {
         mSkinRedden = shrinkValue(redden);
+    }
+
+    public void setFilter(String filterType) {
+        if (filterType != null && filterType.equals(mFilterType)) {
+            mFilterType = filterType;
+        }
+    }
+
+    public void setFilterStrength(int strength) {
+        mFilterStrength = strength;
     }
 }
