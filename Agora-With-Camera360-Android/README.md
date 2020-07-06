@@ -16,7 +16,7 @@ You need to contact Camera360 for customized SDK archives. Once you receive an S
 
 Note that if you introduce this demo into your project, the Camera360 sdk must be built based on your package name. Contact Camera360 before starting your own project.
 
-### Apply for an Agora App ID
+## Apply for an Agora App ID
 
 In order to build and run the sample application you must obtain an App ID:
 
