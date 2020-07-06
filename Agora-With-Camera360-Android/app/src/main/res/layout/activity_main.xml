@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/channel_name_edit"
+        android:layout_width="@dimen/edit_margin_width"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/edit_margin_top"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="gravity"
+        android:gravity="center_horizontal"
+        android:digits="@string/legal_characters_for_agora"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/channel_name_edit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/vertical_margin"
+        android:textAllCaps="false"
+        android:text="@string/join_channel_btn_text"
+        android:onClick="onJoinChannel"/>
+</RelativeLayout>

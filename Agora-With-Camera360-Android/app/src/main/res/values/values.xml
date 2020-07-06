@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="edit_margin_top">240dp</dimen>
+    <dimen name="edit_margin_width">280dp</dimen>
+
+    <dimen name="vertical_margin">32dp</dimen>
+    <dimen name="horizontal_margin">32dp</dimen>
+
+    <dimen name="switch_camera_button_size">48dp</dimen>
+    <dimen name="remote_video_width">135dp</dimen>
+    <dimen name="remote_video_height">240dp</dimen>
+</resources>
