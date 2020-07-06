@@ -1,5 +1,7 @@
 # Agora-With-Camera360-Android
 
+*[English](READEME.md) | 中文*
+
 ## 准备 Camera360 美颜 SDK
 
 您需要联系 Camera360 美颜的工作人员为您定制 SDK 压缩包。 SDK 压缩包包含了一个 aar 库文件、一个模型文件和一个授权字符串。

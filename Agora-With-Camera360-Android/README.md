@@ -1,5 +1,7 @@
 # Agora-With-Camera360-Android
 
+*English | [中文](README.zh.md)*
+
 ## Prepare Camera360 Prettify SDK
 
 You need to contact Camera360 for customized SDK archives. Once you receive an SDK archive, you should find in it a prettify engine aar, a model file and a licence key string.
