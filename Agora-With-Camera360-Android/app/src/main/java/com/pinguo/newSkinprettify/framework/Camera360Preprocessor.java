@@ -77,7 +77,6 @@ public class Camera360Preprocessor implements IPreprocessor {
         int width = mCameraPrettyBase.GetActualOutputWidth();
         int height = mCameraPrettyBase.GetActualOutputHeight();
         int id = mCameraPrettyBase.GetOutputTextureID();
-        Log.i(TAG, "runPrettify: id " + id + " width " + width + "height " + height);
         return id;
     }
 
