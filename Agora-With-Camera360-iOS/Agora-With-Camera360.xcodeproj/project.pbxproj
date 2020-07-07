@@ -54,7 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		07D24CF31D866704002C69BF /* OpenLive-Camera360.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenLive-Camera360.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07D24CF31D866704002C69BF /* Agora-With-Camera360.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Agora-With-Camera360.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D24CF71D866704002C69BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		07D24CF91D866704002C69BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		07D24CFA1D866704002C69BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		090A190124B34EE200DC6F97 /* AGMCapturer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AGMCapturer.framework; sourceTree = "<group>"; };
 		090A190424B3581E00DC6F97 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		090A1B0724B4137600DC6F97 /* 文理输入支持.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "文理输入支持.zip"; sourceTree = "<group>"; };
-		090A1B0924B4138700DC6F97 /* megvii_facepp_model */ = {isa = PBXFileReference; lastKnownFileType = file; path = megvii_facepp_model; sourceTree = "<group>"; };
+		090A1B0924B4138700DC6F97 /* megvii_facepp_model */ = {isa = PBXFileReference; lastKnownFileType = text; path = megvii_facepp_model; sourceTree = "<group>"; };
 		090A1B0A24B4138700DC6F97 /* PGSkinPrettifyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSkinPrettifyType.h; sourceTree = "<group>"; };
 		090A1B0B24B4138700DC6F97 /* libPGSkinPrettifyEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPGSkinPrettifyEngine.a; sourceTree = "<group>"; };
 		090A1B0C24B4138700DC6F97 /* PGSkinPrettifyEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSkinPrettifyEngine.h; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		07D24CEA1D866704002C69BF = {
 			isa = PBXGroup;
 			children = (
-				07D24CF51D866704002C69BF /* OpenLive */,
+				07D24CF51D866704002C69BF /* Agora-With-Camera360 */,
 				07D24CF41D866704002C69BF /* Products */,
 				07D24D131D8667DC002C69BF /* Frameworks */,
 				B97D2C23371A14333A72BC29 /* Pods */,
@@ -142,12 +142,12 @@
 		07D24CF41D866704002C69BF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				07D24CF31D866704002C69BF /* OpenLive-Camera360.app */,
+				07D24CF31D866704002C69BF /* Agora-With-Camera360.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		07D24CF51D866704002C69BF /* OpenLive */ = {
+		07D24CF51D866704002C69BF /* Agora-With-Camera360 */ = {
 			isa = PBXGroup;
 			children = (
 				090A18F624B34D5800DC6F97 /* library */,
@@ -170,7 +170,7 @@
 				07D24D291D867644002C69BF /* ProfileCell.m */,
 				07D24CF61D866704002C69BF /* Supporting Files */,
 			);
-			path = OpenLive;
+			path = "Agora-With-Camera360";
 			sourceTree = "<group>";
 		};
 		07D24CF61D866704002C69BF /* Supporting Files */ = {
@@ -240,9 +240,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		07D24CF21D866704002C69BF /* OpenLive-Camera360 */ = {
+		07D24CF21D866704002C69BF /* Agora-With-Camera360 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 07D24D0A1D866704002C69BF /* Build configuration list for PBXNativeTarget "OpenLive-Camera360" */;
+			buildConfigurationList = 07D24D0A1D866704002C69BF /* Build configuration list for PBXNativeTarget "Agora-With-Camera360" */;
 			buildPhases = (
 				C75D31940D6D2C41361F3E62 /* [CP] Check Pods Manifest.lock */,
 				07D24CEF1D866704002C69BF /* Sources */,
@@ -255,9 +255,9 @@
 			);
 			dependencies = (
 			);
-			name = "OpenLive-Camera360";
+			name = "Agora-With-Camera360";
 			productName = OpenLive;
-			productReference = 07D24CF31D866704002C69BF /* OpenLive-Camera360.app */;
+			productReference = 07D24CF31D866704002C69BF /* Agora-With-Camera360.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -271,8 +271,7 @@
 				TargetAttributes = {
 					07D24CF21D866704002C69BF = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 7289G77ZF3;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -281,7 +280,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 07D24CEE1D866704002C69BF /* Build configuration list for PBXProject "OpenLive-Camera360" */;
+			buildConfigurationList = 07D24CEE1D866704002C69BF /* Build configuration list for PBXProject "Agora-With-Camera360" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -294,7 +293,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				07D24CF21D866704002C69BF /* OpenLive-Camera360 */,
+				07D24CF21D866704002C69BF /* Agora-With-Camera360 */,
 			);
 		};
 /* End PBXProject section */
@@ -514,8 +513,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 7289G77ZF3;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -536,9 +535,9 @@
 					"\"AgoraRtcKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pinguo.inhouse.newSkinprettify;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agora.camera360;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = AgoraIOTest2019;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -581,7 +580,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		07D24CEE1D866704002C69BF /* Build configuration list for PBXProject "OpenLive-Camera360" */ = {
+		07D24CEE1D866704002C69BF /* Build configuration list for PBXProject "Agora-With-Camera360" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				07D24D081D866704002C69BF /* Debug */,
@@ -590,7 +589,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		07D24D0A1D866704002C69BF /* Build configuration list for PBXNativeTarget "OpenLive-Camera360" */ = {
+		07D24D0A1D866704002C69BF /* Build configuration list for PBXNativeTarget "Agora-With-Camera360" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				07D24D0B1D866704002C69BF /* Debug */,

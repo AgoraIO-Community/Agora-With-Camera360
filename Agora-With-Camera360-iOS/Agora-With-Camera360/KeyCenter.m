@@ -10,11 +10,11 @@
 
 @implementation KeyCenter
 + (NSString *)AppId {
-    return @"7db05f7d569847a995cdda5a02e9a319";
+    return @"<#Your App Id#>";
 }
 
 // assign token to nil if you have not enabled app certificate
 + (NSString *)Token {
-    return nil;
+    return @"<#Your App Token#>";
 }
 @end
