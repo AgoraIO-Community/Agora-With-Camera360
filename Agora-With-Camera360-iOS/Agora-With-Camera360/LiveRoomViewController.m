@@ -313,8 +313,7 @@
 //MARK: Capturer
 - (void)initCapturer {
     self.videoConfig = [AGMCapturerVideoConfig defaultConfig];
-    self.videoConfig.videoSize = CGSizeMake(480, 640);
-    self.videoConfig.sessionPreset = AGMCaptureSessionPreset480x640;
+    self.videoConfig.sessionPreset = AVCaptureSessionPreset640x480;
     self.videoConfig.fps = 15;
     self.cameraCapturer = [[AGMCameraCapturer alloc] initWithConfig:self.videoConfig];
     
@@ -324,14 +323,6 @@
 
     __weak typeof(self) weakSelf = self;
     [self.cameraCapturer addVideoSink:self.videoAdapterFilter];
-//        #define DEGREES_TO_RADIANS(x) (x * M_PI/180.0)
-    // Device Orientation Portrait
-//    CGAffineTransform rotation = CGAffineTransformMakeRotation( DEGREES_TO_RADIANS(90));
-    // Device Orientation LandscapeLeft
-//    CGAffineTransform rotation = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(180));
-    // Device Orientation LandscapeRight
-//    CGAffineTransform rotation = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(0));
-//    self.videoAdapterFilter.affineTransform = rotation;
     [self.videoAdapterFilter setFrameProcessingCompletionBlock:^(AGMVideoSource * _Nonnull videoSource, CMTime time) {
         CVPixelBufferRef pixelBuffer = videoSource.framebufferForOutput.pixelBuffer;
         [weakSelf highMachineRender:pixelBuffer];
@@ -510,6 +501,10 @@
 
 - (AgoraVideoBufferType)bufferType {
     return AgoraVideoBufferTypePixelBuffer;
+}
+
+- (AgoraVideoCaptureType)captureType {
+    return AgoraVideoCaptureTypeCamera;
 }
 
 

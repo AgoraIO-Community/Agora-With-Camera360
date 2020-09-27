@@ -8,6 +8,6 @@ target 'Agora-With-Camera360' do
   # Pods for Agora-With-Camera360
   
   pod 'AgoraRtcEngine_iOS'
-
+  pod 'AGMCapturer_iOS', '~> 1.3.3'
 
 end

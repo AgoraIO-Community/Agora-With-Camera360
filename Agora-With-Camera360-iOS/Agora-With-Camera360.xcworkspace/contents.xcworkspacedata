@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/lsq/Github/AgoraIO-Community/Agora-With-Camera360/Agora-With-Camera360-iOS/Agora-With-Camera360.xcodeproj">
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Pods/Pods.xcodeproj">
+      location = "group:Agora-With-Camera360.xcodeproj">
    </FileRef>
 </Workspace>

@@ -19,12 +19,10 @@
 		07D24D341D867644002C69BF /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D24D2B1D867644002C69BF /* SettingsViewController.m */; };
 		07D24D351D867644002C69BF /* VideoViewLayouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D24D2D1D867644002C69BF /* VideoViewLayouter.m */; };
 		07D24D361D867644002C69BF /* VideoSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D24D2F1D867644002C69BF /* VideoSession.m */; };
-		090A190224B34EE200DC6F97 /* AGMBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090A190024B34EE200DC6F97 /* AGMBase.framework */; };
-		090A190324B34EE200DC6F97 /* AGMCapturer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090A190124B34EE200DC6F97 /* AGMCapturer.framework */; };
 		090A190524B3581E00DC6F97 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 090A190424B3581E00DC6F97 /* libz.tbd */; };
-		090A1B0824B4137600DC6F97 /* 文理输入支持.zip in Resources */ = {isa = PBXBuildFile; fileRef = 090A1B0724B4137600DC6F97 /* 文理输入支持.zip */; };
-		090A1B0D24B4138700DC6F97 /* megvii_facepp_model in Resources */ = {isa = PBXBuildFile; fileRef = 090A1B0924B4138700DC6F97 /* megvii_facepp_model */; };
-		090A1B0E24B4138700DC6F97 /* libPGSkinPrettifyEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 090A1B0B24B4138700DC6F97 /* libPGSkinPrettifyEngine.a */; };
+		09DA932F2520A7670013ACD3 /* 文理输入支持.zip in Resources */ = {isa = PBXBuildFile; fileRef = 09DA932A2520A7660013ACD3 /* 文理输入支持.zip */; };
+		09DA93302520A7670013ACD3 /* libPGSkinPrettifyEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09DA932C2520A7670013ACD3 /* libPGSkinPrettifyEngine.a */; };
+		09DA93312520A7670013ACD3 /* megvii_facepp_model in Resources */ = {isa = PBXBuildFile; fileRef = 09DA932E2520A7670013ACD3 /* megvii_facepp_model */; };
 		38D618B8224A5FAE004A6C87 /* BeautyEffectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D618B7224A5FAE004A6C87 /* BeautyEffectTableViewController.m */; };
 		A7733D7824079F3400483870 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7C50EF4212168BD00774322 /* Accelerate.framework */; };
 		A7733D7924079F3900483870 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D24D1A1D8667F5002C69BF /* AudioToolbox.framework */; };
@@ -37,7 +35,7 @@
 		A7733D8024079F5A00483870 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D24D181D8667EC002C69BF /* libc++.tbd */; };
 		A7733D8124079F6500483870 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D29C3B1E9E192A00C3583C /* libresolv.tbd */; };
 		A7733D8224079F9A00483870 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704E32D21FEB50A10027B6DB /* SystemConfiguration.framework */; };
-		AE32D381761B0F5FDB82CE28 /* Pods_OpenLive_Camera360.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB1F211CAE9C9AF55823BEC /* Pods_OpenLive_Camera360.framework */; };
+		C19AC58D99AFE2DAC78C9380 /* Pods_Agora_With_Camera360.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90CB7EF2FCB690B4B810F04 /* Pods_Agora_With_Camera360.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,21 +83,21 @@
 		07D24D2F1D867644002C69BF /* VideoSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoSession.m; sourceTree = "<group>"; };
 		07D29C3B1E9E192A00C3583C /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		083F8E978E1C7CF4376B6CEA /* Pods-OpenLive-Camera360.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenLive-Camera360.release.xcconfig"; path = "Target Support Files/Pods-OpenLive-Camera360/Pods-OpenLive-Camera360.release.xcconfig"; sourceTree = "<group>"; };
-		090A190024B34EE200DC6F97 /* AGMBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AGMBase.framework; sourceTree = "<group>"; };
-		090A190124B34EE200DC6F97 /* AGMCapturer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AGMCapturer.framework; sourceTree = "<group>"; };
 		090A190424B3581E00DC6F97 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		090A1B0724B4137600DC6F97 /* 文理输入支持.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "文理输入支持.zip"; sourceTree = "<group>"; };
-		090A1B0924B4138700DC6F97 /* megvii_facepp_model */ = {isa = PBXFileReference; lastKnownFileType = text; path = megvii_facepp_model; sourceTree = "<group>"; };
-		090A1B0A24B4138700DC6F97 /* PGSkinPrettifyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSkinPrettifyType.h; sourceTree = "<group>"; };
-		090A1B0B24B4138700DC6F97 /* libPGSkinPrettifyEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPGSkinPrettifyEngine.a; sourceTree = "<group>"; };
-		090A1B0C24B4138700DC6F97 /* PGSkinPrettifyEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSkinPrettifyEngine.h; sourceTree = "<group>"; };
+		09DA932A2520A7660013ACD3 /* 文理输入支持.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = "文理输入支持.zip"; sourceTree = "<group>"; };
+		09DA932B2520A7670013ACD3 /* PGSkinPrettifyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSkinPrettifyType.h; sourceTree = "<group>"; };
+		09DA932C2520A7670013ACD3 /* libPGSkinPrettifyEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPGSkinPrettifyEngine.a; sourceTree = "<group>"; };
+		09DA932D2520A7670013ACD3 /* PGSkinPrettifyEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PGSkinPrettifyEngine.h; sourceTree = "<group>"; };
+		09DA932E2520A7670013ACD3 /* megvii_facepp_model */ = {isa = PBXFileReference; lastKnownFileType = file; path = megvii_facepp_model; sourceTree = "<group>"; };
 		382885B42249DC390023BCFA /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
 		38D618B6224A5FAE004A6C87 /* BeautyEffectTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautyEffectTableViewController.h; sourceTree = "<group>"; };
 		38D618B7224A5FAE004A6C87 /* BeautyEffectTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautyEffectTableViewController.m; sourceTree = "<group>"; };
+		4FAFE8ED98F217030E240AAC /* Pods-Agora-With-Camera360.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agora-With-Camera360.release.xcconfig"; path = "Target Support Files/Pods-Agora-With-Camera360/Pods-Agora-With-Camera360.release.xcconfig"; sourceTree = "<group>"; };
 		704E32D21FEB50A10027B6DB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A7C50EF4212168BD00774322 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		B651ECB148C8908650D255FC /* Pods-OpenLive-Camera360.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenLive-Camera360.debug.xcconfig"; path = "Target Support Files/Pods-OpenLive-Camera360/Pods-OpenLive-Camera360.debug.xcconfig"; sourceTree = "<group>"; };
-		FBB1F211CAE9C9AF55823BEC /* Pods_OpenLive_Camera360.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenLive_Camera360.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA65482687F6E7BD7FFF4C2C /* Pods-Agora-With-Camera360.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agora-With-Camera360.debug.xcconfig"; path = "Target Support Files/Pods-Agora-With-Camera360/Pods-Agora-With-Camera360.debug.xcconfig"; sourceTree = "<group>"; };
+		F90CB7EF2FCB690B4B810F04 /* Pods_Agora_With_Camera360.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Agora_With_Camera360.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,16 +111,14 @@
 				A7733D8124079F6500483870 /* libresolv.tbd in Frameworks */,
 				A7733D7C24079F4A00483870 /* CoreML.framework in Frameworks */,
 				A7733D7824079F3400483870 /* Accelerate.framework in Frameworks */,
-				090A190324B34EE200DC6F97 /* AGMCapturer.framework in Frameworks */,
+				09DA93302520A7670013ACD3 /* libPGSkinPrettifyEngine.a in Frameworks */,
 				A7733D7E24079F5000483870 /* CoreTelephony.framework in Frameworks */,
-				090A1B0E24B4138700DC6F97 /* libPGSkinPrettifyEngine.a in Frameworks */,
 				A7733D8024079F5A00483870 /* libc++.tbd in Frameworks */,
 				A7733D7924079F3900483870 /* AudioToolbox.framework in Frameworks */,
-				090A190224B34EE200DC6F97 /* AGMBase.framework in Frameworks */,
 				A7733D7B24079F4A00483870 /* CoreMedia.framework in Frameworks */,
 				A7733D8224079F9A00483870 /* SystemConfiguration.framework in Frameworks */,
 				A7733D7D24079F4A00483870 /* CoreMotion.framework in Frameworks */,
-				AE32D381761B0F5FDB82CE28 /* Pods_OpenLive_Camera360.framework in Frameworks */,
+				C19AC58D99AFE2DAC78C9380 /* Pods_Agora_With_Camera360.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +197,7 @@
 				07D24D181D8667EC002C69BF /* libc++.tbd */,
 				07D24D161D8667E7002C69BF /* VideoToolbox.framework */,
 				07D24D141D8667DC002C69BF /* AVFoundation.framework */,
-				FBB1F211CAE9C9AF55823BEC /* Pods_OpenLive_Camera360.framework */,
+				F90CB7EF2FCB690B4B810F04 /* Pods_Agora_With_Camera360.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -210,8 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				090A1B0624B4137600DC6F97 /* PGSkinEngineSDK */,
-				090A190024B34EE200DC6F97 /* AGMBase.framework */,
-				090A190124B34EE200DC6F97 /* AGMCapturer.framework */,
 			);
 			path = library;
 			sourceTree = "<group>";
@@ -219,11 +213,11 @@
 		090A1B0624B4137600DC6F97 /* PGSkinEngineSDK */ = {
 			isa = PBXGroup;
 			children = (
-				090A1B0B24B4138700DC6F97 /* libPGSkinPrettifyEngine.a */,
-				090A1B0924B4138700DC6F97 /* megvii_facepp_model */,
-				090A1B0C24B4138700DC6F97 /* PGSkinPrettifyEngine.h */,
-				090A1B0A24B4138700DC6F97 /* PGSkinPrettifyType.h */,
-				090A1B0724B4137600DC6F97 /* 文理输入支持.zip */,
+				09DA932A2520A7660013ACD3 /* 文理输入支持.zip */,
+				09DA932C2520A7670013ACD3 /* libPGSkinPrettifyEngine.a */,
+				09DA932E2520A7670013ACD3 /* megvii_facepp_model */,
+				09DA932D2520A7670013ACD3 /* PGSkinPrettifyEngine.h */,
+				09DA932B2520A7670013ACD3 /* PGSkinPrettifyType.h */,
 			);
 			path = PGSkinEngineSDK;
 			sourceTree = "<group>";
@@ -233,6 +227,8 @@
 			children = (
 				B651ECB148C8908650D255FC /* Pods-OpenLive-Camera360.debug.xcconfig */,
 				083F8E978E1C7CF4376B6CEA /* Pods-OpenLive-Camera360.release.xcconfig */,
+				EA65482687F6E7BD7FFF4C2C /* Pods-Agora-With-Camera360.debug.xcconfig */,
+				4FAFE8ED98F217030E240AAC /* Pods-Agora-With-Camera360.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -271,7 +267,8 @@
 				TargetAttributes = {
 					07D24CF21D866704002C69BF = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = JDPG69R49Z;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -303,11 +300,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				090A1B0824B4137600DC6F97 /* 文理输入支持.zip in Resources */,
+				09DA932F2520A7670013ACD3 /* 文理输入支持.zip in Resources */,
 				07D24D061D866704002C69BF /* LaunchScreen.storyboard in Resources */,
 				07D24D031D866704002C69BF /* Assets.xcassets in Resources */,
 				07D24D011D866704002C69BF /* Main.storyboard in Resources */,
-				090A1B0D24B4138700DC6F97 /* megvii_facepp_model in Resources */,
+				09DA93312520A7670013ACD3 /* megvii_facepp_model in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +317,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OpenLive-Camera360/Pods-OpenLive-Camera360-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Agora-With-Camera360/Pods-Agora-With-Camera360-frameworks.sh",
 				"${PODS_ROOT}/AgoraRtcEngine_iOS/AgoraRtcKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -329,7 +326,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OpenLive-Camera360/Pods-OpenLive-Camera360-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Agora-With-Camera360/Pods-Agora-With-Camera360-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C75D31940D6D2C41361F3E62 /* [CP] Check Pods Manifest.lock */ = {
@@ -347,7 +344,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OpenLive-Camera360-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Agora-With-Camera360-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -508,26 +505,24 @@
 		};
 		07D24D0B1D866704002C69BF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B651ECB148C8908650D255FC /* Pods-OpenLive-Camera360.debug.xcconfig */;
+			baseConfigurationReference = EA65482687F6E7BD7FFF4C2C /* Pods-Agora-With-Camera360.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = JDPG69R49Z;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/OpenLive",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/OpenLive/library",
 				);
-				INFOPLIST_FILE = OpenLive/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Agora-With-Camera360/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/OpenLive/library/PGSkinEngineSDK",
+					"$(PROJECT_DIR)/Agora-With-Camera360/library/PGSkinEngineSDK",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -535,16 +530,16 @@
 					"\"AgoraRtcKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.agora.camera360;
+				PRODUCT_BUNDLE_IDENTIFIER = mirenzhibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = AgoraLab2020;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		07D24D0C1D866704002C69BF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 083F8E978E1C7CF4376B6CEA /* Pods-OpenLive-Camera360.release.xcconfig */;
+			baseConfigurationReference = 4FAFE8ED98F217030E240AAC /* Pods-Agora-With-Camera360.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -553,16 +548,14 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/OpenLive",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/OpenLive/library",
 				);
-				INFOPLIST_FILE = OpenLive/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Agora-With-Camera360/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/OpenLive/library/PGSkinEngineSDK",
+					"$(PROJECT_DIR)/Agora-With-Camera360/library/PGSkinEngineSDK",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -570,7 +563,7 @@
 					"\"AgoraRtcKit\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.agora.OpenLive;
+				PRODUCT_BUNDLE_IDENTIFIER = com.agora.camera360;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = AgoraAppsDevProfile;
 				TARGETED_DEVICE_FAMILY = "1,2";
