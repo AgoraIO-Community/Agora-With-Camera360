@@ -21,7 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) BOOL isBeautyOn;
 @property (assign, nonatomic) CGFloat lightening;
 @property (assign, nonatomic) CGFloat smoothness;
-@property (assign, nonatomic) CGFloat redness;
+@property (assign, nonatomic) CGFloat faceshaping;
+@property (assign, nonatomic) CGFloat facethining;
 @property (assign, nonatomic) AgoraLighteningContrastLevel contrast;
 @property (weak, nonatomic) id<BeautyEffectTableVCDelegate> delegate;
 

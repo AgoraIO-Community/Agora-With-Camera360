@@ -1,41 +1,270 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:keepScreenOn="true">
+
+  <TextureView
+    android:id="@+id/video_preview_surface"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextureView
-        android:id="@+id/video_preview_surface"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    android:layout_height="match_parent" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/switch_camera_button"
-        android:layout_width="@dimen/switch_camera_button_size"
-        android:layout_height="@dimen/switch_camera_button_size"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="@dimen/vertical_margin"
-        android:layout_marginEnd="@dimen/horizontal_margin"
-        android:src="@drawable/switch_camera_white"
-        android:background="@drawable/round_gray_background"
-        android:onClick="onCameraSwitched"/>
+  <androidx.appcompat.widget.AppCompatImageView
+    android:id="@+id/switch_camera_button"
+    android:layout_width="@dimen/switch_camera_button_size"
+    android:layout_height="@dimen/switch_camera_button_size"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentEnd="true"
+    android:layout_marginTop="@dimen/vertical_margin"
+    android:layout_marginEnd="@dimen/horizontal_margin"
+    android:background="@drawable/round_gray_background"
+    android:onClick="onCameraSwitched"
+    android:src="@drawable/switch_camera_white" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/mute_button"
-        android:layout_width="@dimen/switch_camera_button_size"
-        android:layout_height="@dimen/switch_camera_button_size"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="@dimen/horizontal_margin"
-        android:layout_marginTop="@dimen/vertical_margin"
-        android:layout_toStartOf="@id/switch_camera_button"
-        android:src="@drawable/speaker"
-        android:onClick="onMuteClicked"/>
+  <androidx.appcompat.widget.AppCompatImageView
+    android:id="@+id/mute_button"
+    android:layout_width="@dimen/switch_camera_button_size"
+    android:layout_height="@dimen/switch_camera_button_size"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="@dimen/vertical_margin"
+    android:layout_marginEnd="@dimen/horizontal_margin"
+    android:layout_toStartOf="@id/switch_camera_button"
+    android:onClick="onMuteClicked"
+    android:src="@drawable/speaker" />
 
-    <RelativeLayout
-        android:id="@+id/remote_video_layout"
-        android:layout_width="@dimen/remote_video_width"
-        android:layout_height="@dimen/remote_video_height"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="@dimen/horizontal_margin"
-        android:layout_marginEnd="@dimen/horizontal_margin"/>
+  <RelativeLayout
+    android:id="@+id/remote_video_layout"
+    android:layout_width="@dimen/remote_video_width"
+    android:layout_height="@dimen/remote_video_height"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginEnd="@dimen/horizontal_margin"
+    android:layout_marginBottom="@dimen/horizontal_margin" />
+
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="center_horizontal"
+    android:background="#44FFFFFF"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      android:padding="5dp">
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/text_pink"
+        android:textColor="#000000" />
+
+      <SeekBar
+        android:id="@+id/seek_pink"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:maxHeight="3.0dip"
+        android:minHeight="3.0dip"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:progressDrawable="@drawable/seekbar_bg"
+        android:thumb="@drawable/seekbar_thumb_selector" />
+
+      <TextView
+        android:id="@+id/pink_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="0.30"
+        android:textColor="#000000" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      android:padding="5dp">
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/text_whiten"
+        android:textColor="#000000" />
+
+      <SeekBar
+        android:id="@+id/seek_whiten"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:maxHeight="3.0dip"
+        android:minHeight="3.0dip"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:progressDrawable="@drawable/seekbar_bg"
+        android:thumb="@drawable/seekbar_thumb_selector" />
+
+      <TextView
+        android:id="@+id/whiten_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="0.30"
+        android:textColor="#000000" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      android:padding="5dp">
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/text_redden"
+        android:textColor="#000000" />
+
+      <SeekBar
+        android:id="@+id/seek_redden"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:maxHeight="3.0dip"
+        android:minHeight="3.0dip"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:progressDrawable="@drawable/seekbar_bg"
+        android:thumb="@drawable/seekbar_thumb_selector" />
+
+      <TextView
+        android:id="@+id/redden_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="0.30"
+        android:textColor="#000000" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      android:padding="5dp">
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/text_skin"
+        android:textColor="#000000" />
+
+      <SeekBar
+        android:id="@+id/seek_soften"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:maxHeight="3.0dip"
+        android:minHeight="3.0dip"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:progressDrawable="@drawable/seekbar_bg"
+        android:thumb="@drawable/seekbar_thumb_selector" />
+
+      <TextView
+        android:id="@+id/soften_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="0.30"
+        android:textColor="#000000" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      android:padding="5dp">
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/text_big_eye"
+        android:textColor="#000000" />
+
+      <SeekBar
+        android:id="@+id/seek_bigeye"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:maxHeight="3.0dip"
+        android:minHeight="3.0dip"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:progressDrawable="@drawable/seekbar_bg"
+        android:thumb="@drawable/seekbar_thumb_selector" />
+
+      <TextView
+        android:id="@+id/bigeye_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="0.30"
+        android:textColor="#000000" />
+    </LinearLayout>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      android:padding="5dp">
+
+      <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="@string/text_thin_face"
+        android:textColor="#000000" />
+
+      <SeekBar
+        android:id="@+id/seek_thinface"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:maxHeight="3.0dip"
+        android:minHeight="3.0dip"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:progressDrawable="@drawable/seekbar_bg"
+        android:thumb="@drawable/seekbar_thumb_selector" />
+
+      <TextView
+        android:id="@+id/thinface_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="0.30"
+        android:textColor="#000000" />
+    </LinearLayout>
+
+  </LinearLayout>
 </RelativeLayout>

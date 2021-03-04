@@ -37,7 +37,14 @@
 @property (assign, nonatomic) BOOL isEnableSuperResolution;
 @property (assign, nonatomic) NSUInteger highPriorityRemoteUid;
 @property (assign, nonatomic) BOOL isBeautyOn;
+@property (assign, nonatomic) BOOL m_bIsFirstFrame;
+@property (assign, nonatomic) CGSize m_sFrameSize;
 @property (strong, nonatomic) AgoraBeautyOptions *beautyOptions;
+@property (assign, nonatomic) CGFloat faceLighten;
+@property (assign, nonatomic) CGFloat faceShaping;
+@property (assign, nonatomic) CGFloat faceThining;
+@property (assign, nonatomic) CGFloat faceSmooth;
+@property (assign, nonatomic) CVPixelBufferRef previousPixelBuffer;
 #pragma Capturer
 @property (nonatomic, strong) AGMCameraCapturer *cameraCapturer;
 @property (nonatomic, strong) AGMCapturerVideoConfig *videoConfig;
@@ -112,7 +119,6 @@
 
 - (void)setIsBeautyOn:(BOOL)isBeautyOn {
     _isBeautyOn = isBeautyOn;
-    [self.rtcEngine setBeautyEffectOptions:isBeautyOn options:self.beautyOptions];
     [self.beautyEffectButton setImage:[UIImage imageNamed:(isBeautyOn ? @"btn_beautiful_cancel" : @"btn_beautiful")] forState:UIControlStateNormal];
 }
 
@@ -134,6 +140,12 @@
     self.beautyOptions.rednessLevel = 0.1;
     
     self.isBeautyOn = YES;
+    
+    self.faceSmooth = 80;
+    self.faceLighten = 0.6;
+    self.faceShaping = 70;
+    self.faceThining = 100;
+    self.m_bIsFirstFrame = YES;
 }
 
 
@@ -142,10 +154,10 @@
     if ([segue.identifier isEqualToString:@"roomVCPopBeautyList"]) {
         BeautyEffectTableViewController *vc = segue.destinationViewController;
         vc.isBeautyOn = self.isBeautyOn;
-        vc.smoothness = self.beautyOptions.smoothnessLevel;
-        vc.lightening = self.beautyOptions.lighteningLevel;
-        vc.contrast = self.beautyOptions.lighteningContrastLevel;
-        vc.redness = self.beautyOptions.rednessLevel;
+        vc.smoothness = self.faceSmooth / 100;
+        vc.lightening = self.faceLighten;
+        vc.faceshaping = self.faceShaping / 100;
+        vc.facethining = self.faceThining / 100;
         vc.delegate = self;
         vc.popoverPresentationController.delegate = self;
     }
@@ -313,8 +325,8 @@
 //MARK: Capturer
 - (void)initCapturer {
     self.videoConfig = [AGMCapturerVideoConfig defaultConfig];
-    self.videoConfig.sessionPreset = AVCaptureSessionPreset640x480;
-    self.videoConfig.fps = 15;
+    self.videoConfig.sessionPreset = AVCaptureSessionPreset1920x1080;
+    self.videoConfig.fps = 10;
     self.cameraCapturer = [[AGMCameraCapturer alloc] initWithConfig:self.videoConfig];
     
     // Filter
@@ -325,8 +337,34 @@
     [self.cameraCapturer addVideoSink:self.videoAdapterFilter];
     [self.videoAdapterFilter setFrameProcessingCompletionBlock:^(AGMVideoSource * _Nonnull videoSource, CMTime time) {
         CVPixelBufferRef pixelBuffer = videoSource.framebufferForOutput.pixelBuffer;
+        // 根据第一帧适配界面
+        if(self.m_bIsFirstFrame){
+            self.m_sFrameSize = CVImageBufferGetDisplaySize(pixelBuffer);
+            [self configFirstBuffer];
+        }
         [weakSelf highMachineRender:pixelBuffer];
     }];
+}
+
+- (void)configFirstBuffer {
+    //----------此代码很关键，为配置引擎-------------
+    // 在第一帧视频到来时，初始化美肤引擎，指定需要的输出大小和输出格式
+    CGSize sizeForAdjustInput = CGSizeMake(self.m_sFrameSize.width, self.m_sFrameSize.height);
+    //第一帧大小调整
+    [_pPGSkinPrettifyEngine SetSizeForAdjustInput:sizeForAdjustInput];
+    //第一帧方向校准
+    [_pPGSkinPrettifyEngine SetOrientForAdjustInput: PGOrientationNormal];
+    //输出格式，此处一定注意输出格式要与opengl绘制中的格式一致（直播接收端处理注意了）
+    [_pPGSkinPrettifyEngine SetOutputFormat:PGPixelFormatYUV420];
+    //输出方向
+    [_pPGSkinPrettifyEngine SetOutputOrientation:PGOrientationMirrored];
+    //美肤强度设置
+    [_pPGSkinPrettifyEngine SetSkinSoftenStrength:80];
+    //红润、粉嫩、白皙效果设置
+    [_pPGSkinPrettifyEngine SetSkinColor:0.6 Whitening:0.6 Redden:0.6];
+    [_pPGSkinPrettifyEngine FaceShapingEnable:YES];
+    
+    self.m_bIsFirstFrame = NO;
 }
 
 - (void)viewWillLayoutSubviews {
@@ -365,33 +403,93 @@
     // ----------设置磨皮算法，请使用 细节保留磨皮:PGSoftenAlgorithmContrast--------
     [_pPGSkinPrettifyEngine SetSkinSoftenAlgorithm:PGSoftenAlgorithmContrast];
     
-    [_pPGSkinPrettifyEngine updateCaptureOrientation:AVCaptureVideoOrientationPortrait];
-    [_pPGSkinPrettifyEngine SetSizeForAdjustInput:CGSizeMake(480, 640)];
-    [_pPGSkinPrettifyEngine SetOrientForAdjustInput:PGOrientationNormal];
     [_pPGSkinPrettifyEngine SetOutputOrientation:PGOrientationNormal];
+    [_pPGSkinPrettifyEngine SetSizeForAdjustInput:CGSizeMake(1080, 1920)];
+    [_pPGSkinPrettifyEngine SetOrientForAdjustInput:PGOrientationNormal];
     [_pPGSkinPrettifyEngine SetOutputFormat:PGPixelFormatYUV420];
     
+    /*--------------------增加贴纸-----------------*/
+    NSString *modelPath = [[NSBundle mainBundle] pathForResource:@"megvii_facepp_model" ofType:nil];
+    if(modelPath && [[NSFileManager defaultManager] fileExistsAtPath:modelPath]){
+        [_pPGSkinPrettifyEngine SetFaceModelPath:modelPath];
+    }
+    [_pPGSkinPrettifyEngine FaceShapingEnable:YES];
+    NSLog(@"Prettify SDK Version:%@", [PGSkinPrettifyEngine getSDKVersion]);
 
+}
+
+//把pixelBuffer包装成samplebuffer送给displayLayer
+- (CMSampleBufferRef)dispatchPixelBuffer:(CVPixelBufferRef) pixelBuffer
+{
+    if (!pixelBuffer){
+        return NULL;
+    }
+    @synchronized(self) {
+    if (self.previousPixelBuffer){
+//        CFRelease(self.previousPixelBuffer);
+        self.previousPixelBuffer = nil;
+    }
+    self.previousPixelBuffer = CFRetain(pixelBuffer);
+    }
+
+    //不设置具体时间信息
+    CMSampleTimingInfo timing = {kCMTimeInvalid, kCMTimeInvalid, kCMTimeInvalid};
+    //获取视频信息
+    CMVideoFormatDescriptionRef videoInfo = NULL;
+    OSStatus result = CMVideoFormatDescriptionCreateForImageBuffer(NULL, pixelBuffer, &videoInfo);
+    NSParameterAssert(result == 0 && videoInfo != NULL);
+
+    CMSampleBufferRef sampleBuffer = NULL;
+    result = CMSampleBufferCreateForImageBuffer(kCFAllocatorDefault,pixelBuffer, true, NULL, NULL, videoInfo, &timing, &sampleBuffer);
+    NSParameterAssert(result == 0 && sampleBuffer != NULL);
+    CFRelease(pixelBuffer);
+    CFRelease(videoInfo);
+    CFArrayRef attachments = CMSampleBufferGetSampleAttachmentsArray(sampleBuffer, YES);
+    CFMutableDictionaryRef dict = (CFMutableDictionaryRef)CFArrayGetValueAtIndex(attachments, 0);
+    CFDictionarySetValue(dict, kCMSampleAttachmentKey_DisplayImmediately, kCFBooleanTrue);
+//    [self enqueueSampleBuffer:sampleBuffer toLayer:self.sampleBufferDisplayLayer];
+//    CFRelease(sampleBuffer);
+    return sampleBuffer;
+}
+
+- (CMSampleBufferRef)getCMSampleBufferFromPixelBuffer:(CVPixelBufferRef)pixelBuffer
+{
+    if (!pixelBuffer){
+        return NULL;
+    }
+    CMSampleTimingInfo timing = {kCMTimeInvalid, kCMTimeInvalid, kCMTimeInvalid};
+    CMVideoFormatDescriptionRef videoInfo = NULL;
+    CMVideoFormatDescriptionCreateForImageBuffer(NULL, self.previousPixelBuffer, &videoInfo);
+    CMSampleBufferRef sampleBuffer = NULL;
+    CMSampleBufferCreateReadyWithImageBuffer(kCFAllocatorDefault, pixelBuffer, videoInfo, &timing, &sampleBuffer);
+    return sampleBuffer;
 }
 
 ///< 高端机型直接使用下面方法即可（iphone5s及其以上）同步处理 _skinStrength
 - (void)highMachineRender:(CVPixelBufferRef)pixelBuffer {
     //设置输入帧（imageBuffer为CVPixelBufferRef类型）
-    [_pPGSkinPrettifyEngine SetInputFrameByCVImage:pixelBuffer];
-    //美肤强度设置, demo 设置为 80
-    [_pPGSkinPrettifyEngine SetSkinSoftenStrength:80];
-    //红润、粉嫩、白皙效果设置，demo 设置为 60
-//    [_pPGSkinPrettifyEngine SetSkinColor:60 Whitening:60 Redden:60];
-    [_pPGSkinPrettifyEngine SetColorFilterStrength:80];
-    //设置大眼瘦脸功能强度
-//    if(self.hasFaceFunc)
-//        [_pPGSkinPrettifyEngine SetFaceShapingParam:70 ThinFace:100];
-    
+//    [_pPGSkinPrettifyEngine SetInputFrameByCVImage:pixelBuffer];
+    CMSampleBufferRef bufferRef = [self dispatchPixelBuffer:pixelBuffer];
+    [_pPGSkinPrettifyEngine SetInputFrameByCVSampleImage:bufferRef];
+    if (self.isBeautyOn) {
+        [_pPGSkinPrettifyEngine SetSkinSoftenStrength:self.faceSmooth];
+        [_pPGSkinPrettifyEngine SetColorFilterStrength:self.faceSmooth];
+        [_pPGSkinPrettifyEngine SetSkinColor:self.faceLighten Whitening:self.faceLighten Redden:self.faceLighten];
+        [_pPGSkinPrettifyEngine SetFaceShapingParam:self.faceShaping ThinFace:self.faceThining];
+    }
+    else {
+        [_pPGSkinPrettifyEngine SetSkinSoftenStrength:0];
+        [_pPGSkinPrettifyEngine SetColorFilterStrength:0];
+        [_pPGSkinPrettifyEngine SetSkinColor:0 Whitening:0 Redden:0];
+        [_pPGSkinPrettifyEngine SetFaceShapingParam:0 ThinFace:0];
+    }
     //启动引擎
     [_pPGSkinPrettifyEngine RunEngine];
-    //渲染试图
-//    [_pPGSkinPrettifyEngine PGOglViewPresent];
-    
+    BOOL isFaceDetected = [_pPGSkinPrettifyEngine isFaceDetected];
+    if(isFaceDetected) {
+//        NSLog(@"检测到人脸");
+    }
+    CFRelease(bufferRef);
 }
 
 
@@ -419,10 +517,10 @@
     [self.rtcEngine enableVideo];
     
     AgoraVideoEncoderConfiguration *configuration =
-        [[AgoraVideoEncoderConfiguration alloc] initWithSize:self.videoProfile
-                                                   frameRate:AgoraVideoFrameRateFps24
+        [[AgoraVideoEncoderConfiguration alloc] initWithSize:CGSizeMake(1080, 1920)
+                                                   frameRate:AgoraVideoFrameRateFps10
                                                      bitrate:AgoraVideoBitrateStandard
-                                             orientationMode:AgoraVideoOutputOrientationModeAdaptative];
+                                             orientationMode:AgoraVideoOutputOrientationModeFixedPortrait];
     [self.rtcEngine setVideoEncoderConfiguration:configuration];
     [self.rtcEngine setClientRole:self.clientRole];
     [self.rtcEngine setVideoSource:self];
@@ -510,10 +608,10 @@
 
 //MARK: - enhancer
 - (void)beautyEffectTableVCDidChange:(BeautyEffectTableViewController *)enhancerTableVC {
-    self.beautyOptions.lighteningLevel = enhancerTableVC.lightening;
-    self.beautyOptions.smoothnessLevel = enhancerTableVC.smoothness;
-    self.beautyOptions.lighteningContrastLevel = enhancerTableVC.contrast;
-    self.beautyOptions.rednessLevel = enhancerTableVC.redness;
+    self.faceLighten = enhancerTableVC.lightening;
+    self.faceShaping = enhancerTableVC.faceshaping * 100;
+    self.faceThining = enhancerTableVC.facethining * 100;
+    self.faceSmooth = enhancerTableVC.smoothness * 100;
     self.isBeautyOn = enhancerTableVC.isBeautyOn;
 }
 

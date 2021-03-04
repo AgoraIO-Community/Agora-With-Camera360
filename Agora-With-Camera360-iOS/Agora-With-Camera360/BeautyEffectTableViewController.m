@@ -16,7 +16,8 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *contrastSwitcher;
 @property (weak, nonatomic) IBOutlet UISlider *smoothnessSlider;
 @property (weak, nonatomic) IBOutlet UILabel *smoothnessLabel;
-@property (weak, nonatomic) IBOutlet UISlider *rednessSlider;
+@property (weak, nonatomic) IBOutlet UISlider *faceShapingSlider;
+@property (weak, nonatomic) IBOutlet UISlider *faceThinSlider;
 @property (weak, nonatomic) IBOutlet UILabel *rednessLabel;
 @end
 
@@ -29,16 +30,13 @@
     self.switcher.selectedSegmentIndex = self.isBeautyOn ? 0 : 1;
     
     self.lighteningSlider.value = self.lightening;
-    self.lighteningLabel.text = [self displayStringOfValue:self.lightening];
-    
-    NSInteger index = [self indexOfLevel:self.contrast];
-    self.contrastSwitcher.selectedSegmentIndex = index;
     
     self.smoothnessSlider.value = self.smoothness;
-    self.smoothnessLabel.text = [self displayStringOfValue:self.smoothness];
     
-    self.rednessSlider.value = self.redness;
-    self.rednessLabel.text = [self displayStringOfValue:self.redness];
+    self.faceShapingSlider.value = self.faceshaping;
+    
+    self.faceThinSlider.value = self.facethining;
+    
 }
 
 - (IBAction)doSwitched:(UISegmentedControl *)sender {
@@ -52,16 +50,6 @@
 
 - (IBAction)doLighteningSliderChanged:(UISlider *)sender {
     self.lightening = sender.value;
-    self.lighteningLabel.text = [self displayStringOfValue:self.lightening];
-    
-    if ([self.delegate respondsToSelector:@selector(beautyEffectTableVCDidChange:)]) {
-        [self.delegate beautyEffectTableVCDidChange:self];
-    }
-}
-
-- (IBAction)doConstrastChanged:(UISegmentedControl *)sender {
-    NSInteger index = sender.selectedSegmentIndex;
-    self.contrast = [self levelAtIndex:index];
     
     if ([self.delegate respondsToSelector:@selector(beautyEffectTableVCDidChange:)]) {
         [self.delegate beautyEffectTableVCDidChange:self];
@@ -70,16 +58,22 @@
 
 - (IBAction)doSmoothnessSliderChanged:(UISlider *)sender {
     self.smoothness = sender.value;
-    self.smoothnessLabel.text = [self displayStringOfValue:self.smoothness];
     
     if ([self.delegate respondsToSelector:@selector(beautyEffectTableVCDidChange:)]) {
         [self.delegate beautyEffectTableVCDidChange:self];
     }
 }
 
-- (IBAction)doRednessSliderChanged:(UISlider *)sender {
-    self.redness = sender.value;
-    self.rednessLabel.text = [self displayStringOfValue:self.redness];
+- (IBAction)doFaceShapingSliderChanged:(UISlider *)sender {
+    self.faceshaping = sender.value;
+    
+    if ([self.delegate respondsToSelector:@selector(beautyEffectTableVCDidChange:)]) {
+        [self.delegate beautyEffectTableVCDidChange:self];
+    }
+}
+
+- (IBAction)doFaceThiningSliderChanged:(UISlider *)sender {
+    self.facethining = sender.value;
     
     if ([self.delegate respondsToSelector:@selector(beautyEffectTableVCDidChange:)]) {
         [self.delegate beautyEffectTableVCDidChange:self];
