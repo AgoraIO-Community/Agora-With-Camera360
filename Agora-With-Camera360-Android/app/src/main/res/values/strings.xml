@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name" translatable="false">RtcCamera360</string>
+    <string name="text_pink">粉嫩程度</string>
+    <string name="text_whiten">白皙程度</string>
+    <string name="text_redden">红润程度</string>
+    <string name="text_skin">美肤强度</string>
+    <string name="text_big_eye">大眼程度</string>
+    <string name="text_thin_face">瘦脸程度</string>
 
     <string name="agora_app_id" translatable="false"><#YOUR_APP_ID#></string>
 
@@ -7,5 +13,5 @@
 
     <string name="legal_characters_for_agora" translatable="false">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&amp;()+,-:;&lt;=.>?@[]^_`{|}~</string>
 
-    <string name="camera_360_licence" translatable="false"><#LICENCE#></string>
+    <string name="camera_360_licence" translatable="false"><#YOUR_LICENCE#></string>
 </resources>

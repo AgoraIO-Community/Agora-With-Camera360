@@ -1,3 +1,10 @@
 <resources>
-    <string name="join_channel_btn_text">加入频道</string>
+  <string name="join_channel_btn_text">加入频道</string>
+
+  <string name="text_pink">粉嫩程度</string>
+  <string name="text_whiten">白皙程度</string>
+  <string name="text_redden">红润程度</string>
+  <string name="text_skin">美肤强度</string>
+  <string name="text_big_eye">大眼程度</string>
+  <string name="text_thin_face">瘦脸程度</string>
 </resources>

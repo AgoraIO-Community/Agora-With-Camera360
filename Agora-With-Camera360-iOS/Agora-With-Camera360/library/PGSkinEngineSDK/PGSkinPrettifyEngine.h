@@ -315,19 +315,6 @@ extern NSString const *kSDK_PG_Version;  ///< sdk版本，问题反馈、key更�
 #pragma mark - added by bob 2019-01-26
 
 /**
- @date
- 2019-07-29
- @author
- Bob
- @brief
- 设定Device的采集视频帧的方向
- @note
- 注意采集的方向应该告诉引擎，以便于在显示过程人脸检测过程使用
- @param orientation 旋转方向
- */
-- (void)updateCaptureOrientation:(AVCaptureVideoOrientation)orientation;
-
-/**
  @brief
  设置直接处理美化图片的路径
  @note
@@ -439,17 +426,6 @@ extern NSString const *kSDK_PG_Version;  ///< sdk版本，问题反馈、key更�
  @return CMSampleBufferRef
  */
 + (CMSampleBufferRef)convertPixelToSampleBufferRef:(CVPixelBufferRef)pixel;
-
-#pragma mark - 处理文理部分
-
-/**
- @brief
- bob 2019
- @note
- 设置输入帧文理id
- @param textureId 文理id
- */
-- (void)setInputFrameByTexture:(int)textureId;
 
 @end
 
